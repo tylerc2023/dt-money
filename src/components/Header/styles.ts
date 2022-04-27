@@ -25,6 +25,8 @@ export const Content = styled.div`
       border-radius: 0.25rem;
       height: 3rem; //ficará com 48px de altura.
 
-
+    &:hover {
+        filter: blur(5px); //a tag filter dá efeitos diferentões ,nesse caso para o botão
+    }
   }
 `
