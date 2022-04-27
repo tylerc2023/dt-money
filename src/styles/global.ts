@@ -37,6 +37,16 @@ export const GlobalStyle = createGlobalStyle`
       -webkit-font-smoothing: antialiased; /*para as fontes ficarem mais detalhadas/nítidas */
   }
 
+  //definindo a fonte Poppins no body,input,textarea, button. Por que por padrão eles não pegam a fonte pq eles tem sua própria fonte, isso vai sobrescrever tudo.
+  body, input, textarea, button {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+  }
+
+  h1, h2, h3, h4, h5, h6, strong {
+      font-weight:600;
+  }//strong são as tags de negrito
+
   button {
       cursor: pointer;
   }
