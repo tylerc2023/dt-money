@@ -4,14 +4,12 @@ export const GlobalStyle = createGlobalStyle`
    
    :root {
        --background: #f9f2f5;
-
    }
 
   * {
       margin:0;
       padding: 0;
       box-sizing: border-box;
-
   }
 
   //16px é o tamanho padrão de fonte ideal para desktop
@@ -27,8 +25,16 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
       background: var(--background);
-      -webkit-font-smoothing: antialiased; //para as fontes ficarem mais detalhadas/nítidas 
-
+      -webkit-font-smoothing: antialiased; /*para as fontes ficarem mais detalhadas/nítidas */
   }
 
+  button {
+      cursor: pointer;
+  }
+
+  //tudo o que estiver desabilitado na nossa aplicação vai ficar com uma cor mais clara
+  [disabled] {
+      opacity:0.6;
+      cursor: not-allowed;
+  }
 `
