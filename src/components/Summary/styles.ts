@@ -18,9 +18,10 @@ export const Container = styled.div`
             align-items: center;
             justify-content: space-between;
         }
-
+        
+       
         strong {
-            display: block;  //para tira o padrão do strong que é o inline aí o margin-top não funcionaria.
+            display: block;  //para tira o padrão do strong que é o inline aí o margin-top não funcionaria. Ele faz o strong se comportar como se fosse uma div
             margin-top: 1rem;
             font-size: 2rem;
             font-weight: 500;
@@ -28,3 +29,5 @@ export const Container = styled.div`
         }
     }
 `;
+
+
