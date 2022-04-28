@@ -20,7 +20,7 @@ export const Container = styled.div`
         }
 
         strong {
-            display: block;
+            display: block;  //para tira o padrão do strong que é o inline.
             margin-top: 1rem;
             font-size: 2rem;
             font-weight: 500;
