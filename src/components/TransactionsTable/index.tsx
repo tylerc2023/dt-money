@@ -6,7 +6,7 @@ export function TransactionsTable() {
             <table>
                 <thead>
                     <tr>
-                        <th>Título</th>
+                        <th className="title">Título</th>
                         <th>Valor</th>
                         <th>Categoria</th>
                         <th>Data</th>
@@ -14,19 +14,19 @@ export function TransactionsTable() {
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Desenvolvimento de site</td>
+                        <td  className="title">Desenvolvimento de site</td>
                         <td>R$12.000</td>  
                         <td>Desenvolvimento</td> 
                         <td>20/02/2021</td>
                     </tr>
                     <tr>
-                        <td>Desenvolvimento de site</td>
+                        <td  className="title">Desenvolvimento de site</td>
                         <td>R$12.000</td>  
                         <td>Desenvolvimento</td> 
                         <td>20/02/2021</td>
                     </tr>
                     <tr>
-                        <td>Desenvolvimento de site</td>
+                        <td  className="title">Desenvolvimento de site</td>
                         <td>R$12.000</td>  
                         <td>Desenvolvimento</td> 
                         <td>20/02/2021</td>
