@@ -1,5 +1,5 @@
 # dt-money 
 
-Ignite da Rocketseat
+Ignite/Rocketseat/ReactJS/Estudos
 
-Aplicação de controle de finanças
+Esta é uma aplicaçaõ de controle de controle de finanças simples e eficaz.
