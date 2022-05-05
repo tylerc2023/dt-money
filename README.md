@@ -1,4 +1,4 @@
-# dt-money 
+# dt.money 
 
 Ignite/Rocketseat/ReactJS/Estudos
 
