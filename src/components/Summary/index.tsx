@@ -30,4 +30,4 @@ export function Summary() {
             </div>
         </Container>
     );
-} //cada item vai ser representado por uma div por enquanto
+} 
