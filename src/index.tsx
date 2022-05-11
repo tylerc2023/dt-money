@@ -1,15 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
+import { App } from './App';
 import {createServer} from 'miragejs';
-import {App} from './App';
+
 
 createServer({
   routes() {
     this.namespace = 'api';
 
-    //para cada rota:
-    this.get('/transacitons', () => {
-      return [ //posso retornar o que eu quiser
+    //para cada uma das rotas:
+    this.get('/transactions', () => {
+      return [
         {
           id: 1,
           title: 'Transaction 1',
@@ -17,15 +18,16 @@ createServer({
           type: 'deposit',
           category: 'Food',
           createAt: new Date()
-        } //alguns campos de valor retornado da api
-      ]
+        }
+      ] //aqui posso retornar o que eu quiser
     })
   }
 })
 
 ReactDOM.render(
   <React.StrictMode>
-    <App/>
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
+
