@@ -1,4 +1,4 @@
-import logoIMG from "../../assets/logo.svg"; //importando img de assets
+import logoIMG from "../../assets/logo.svg";
 import {Container, Content} from './styles';
 import {useState} from 'react';
 
