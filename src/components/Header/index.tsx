@@ -5,7 +5,6 @@ import Modal from 'react-modal';
 
 
 export function Header() {
-
     //criando o modal
     const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
     function handleOpenNewTransactionModal() {
