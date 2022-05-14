@@ -3,7 +3,6 @@ import {Container, Content} from './styles';
 import {useState} from 'react';
 import Modal from 'react-modal';
 
-//o modal pode ficar em qualquer lugar do código
 
 export function Header() {
 
@@ -29,7 +28,7 @@ export function Header() {
                 <h2>
                     Cadastrar Transação
                 </h2>
-            </Modal>
+            </Modal> //o modal pode ficar em qualquer lugar do código
             </Content>
         </Container>
     );
