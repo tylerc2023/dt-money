@@ -12,7 +12,7 @@ export function Header() {
     }
 
     function handleCloseNewTransactionModal() {
-        //sempre que uma função começa com handle é pq o user vai clicar em algo
+        //sempre que uma função começa com handle é pq o usuário vai clicar em algo
         setIsNewTransactionModalOpen(false);
     }
 
@@ -27,8 +27,8 @@ export function Header() {
                 <h2>
                     Cadastrar Transação
                 </h2>
-            </Modal> //o modal pode ficar em qualquer lugar do código
+            </Modal> 
             </Content>
         </Container>
-    );
+    ); //o modal pode ficar em qualquer lugar do código
 }
