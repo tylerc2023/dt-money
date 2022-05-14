@@ -1,7 +1,9 @@
-import logoIMG from "../../assets/logo.svg";
+import logoIMG from "../../assets/logo.svg"; 
 import {Container, Content} from './styles';
 import {useState} from 'react';
+import Modal from 'react-modal';
 
+//o modal pode ficar em qualquer lugar do código
 
 export function Header() {
 
@@ -23,6 +25,9 @@ export function Header() {
             <button type="button" onClick={handleOpenNewTransactionModal}>
                 Nova transação
             </button>
+            <Modal>
+                
+            </Modal>
             </Content>
         </Container>
     );
