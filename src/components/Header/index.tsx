@@ -25,8 +25,10 @@ export function Header() {
             <button type="button" onClick={handleOpenNewTransactionModal}>
                 Nova transação
             </button>
-            <Modal>
-                
+            <Modal isOpen={isNewTransactionModalOpen}>
+                <h2>
+                    Cadastrar Transação
+                </h2>
             </Modal>
             </Content>
         </Container>
