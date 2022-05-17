@@ -4,7 +4,11 @@ import {useState} from 'react';
 import Modal from 'react-modal';
 
 
-export function Header() {
+interface HeaderProps {
+    onOpenNewTransactionModal : () => void;
+}
+
+export function Header(props:HeaderProps) {
 
     return(
         <Container>
@@ -13,6 +17,7 @@ export function Header() {
             <button type="button" onClick={handleOpenNewTransactionModal}>
                 Nova transação
             </button>
+           
             </Content>
         </Container>
     ); //o modal pode ficar em qualquer lugar do código
