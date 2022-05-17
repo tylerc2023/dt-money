@@ -23,11 +23,6 @@ export function Header() {
             <button type="button" onClick={handleOpenNewTransactionModal}>
                 Nova transação
             </button>
-            <Modal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionModal}>
-                <h2>
-                    Cadastrar Transação
-                </h2>
-            </Modal> 
             </Content>
         </Container>
     ); //o modal pode ficar em qualquer lugar do código
