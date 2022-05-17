@@ -5,6 +5,8 @@ import Modal from 'react-modal';
 import {useState} from 'react';
 
 
+Modal.setAppElement('root'); //mais para uma questão de acessibilidade
+
 export function App() {
 
   //criando o modal
