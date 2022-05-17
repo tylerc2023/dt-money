@@ -5,16 +5,6 @@ import Modal from 'react-modal';
 
 
 export function Header() {
-    //criando o modal
-    const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
-    function handleOpenNewTransactionModal() {
-        setIsNewTransactionModalOpen(true);
-    }
-
-    function handleCloseNewTransactionModal() {
-        //sempre que uma função começa com handle é pq o usuário vai clicar em algo
-        setIsNewTransactionModalOpen(false);
-    }
 
     return(
         <Container>
