@@ -4,8 +4,8 @@ import { Dashboard } from "./components/Dashboard";
 import Modal from 'react-modal';
 import {useState} from 'react';
 
-
-Modal.setAppElement('root'); //mais para uma questão de acessibilidade
+ //mais para uma questão de acessibilidade
+Modal.setAppElement('root');
 
 export function App() {
 
