@@ -8,17 +8,17 @@ interface HeaderProps {
     onOpenNewTransactionModal : () => void;
 }
 
-export function Header(props:HeaderProps) {
+export function Header({onOpenNewTransactionModal}:HeaderProps) {
 
     return(
         <Container>
             <Content>
             <img src={logoIMG} alt="dt money" />
-            <button type="button" onClick={handleOpenNewTransactionModal}>
+            <button type="button" onClick={onOpenNewTransactionModal}>
                 Nova transação
             </button>
            
             </Content>
         </Container>
-    ); //o modal pode ficar em qualquer lugar do código
+    ); 
 }
