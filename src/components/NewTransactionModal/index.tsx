@@ -1,5 +1,6 @@
 import Modal from 'react-modal';
 import { Container } from './styles';
+import closeImg from '../../assets/close.svg';
 
 
 interface NewTransactionModaProps {
