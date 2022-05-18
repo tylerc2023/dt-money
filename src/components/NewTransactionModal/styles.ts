@@ -48,3 +48,10 @@ export const Container = styled.form`
         }
     }
 `;
+
+export const TransactionTypeContainer = styled.div`
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr; //duas colunas
+    gap: 0.5rem; //espaçamento entre cada botão
+`;
