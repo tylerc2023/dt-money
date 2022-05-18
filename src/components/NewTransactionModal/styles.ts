@@ -29,7 +29,7 @@ export const Container = styled.form`
        
     }
 
-    button[type="submit"] { 
+    button[type="submit"] {
         width: 100%;
         padding: 0 1.5rem;
         height: 4rem;
@@ -54,4 +54,28 @@ export const TransactionTypeContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr; //duas colunas
     gap: 0.5rem; //espaçamento entre cada botão
+
+    button {
+        height: 4rem;
+        border: 1px solid #d7d7d7;
+        border-radius: 0.25rem;
+        
+        background: transparent;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+
+        span {
+            display: inline-block;
+            margin-left: 1rem;
+            font-size: 1rem;
+            color: var(--text-title);
+        }
+    }
 `;
