@@ -75,7 +75,7 @@ export const GlobalStyle = createGlobalStyle`
        background: var(--background);
        padding: 3rem;
        position: relative; //pq depoisvamos ter conteúdos com position absolute, senão não funcionariam lá
-       border-radius: 0.25rem;
+       border-radius: 0.24rem;
   }
 `;
 
