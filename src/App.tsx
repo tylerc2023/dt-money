@@ -6,7 +6,7 @@ import {useState} from 'react';
 import { NewTransactionModal } from "./components/NewTransactionModal";
 
 //mais para uma questão de acessibilidade
-Modal.setAppElement('root')
+Modal.setAppElement('#root');
 
 export function App() {
 
