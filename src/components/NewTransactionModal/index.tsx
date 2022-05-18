@@ -1,8 +1,15 @@
+import Modal from 'react-modal';
 
-export function NewTransactionModal() {
+
+interface NewTransactionModaProps {
+    isOpen: boolean;
+    onRequestClose: () => void;
+}
+
+export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionModaProps) {
     return(
-        <Modal isOpen={isNewTransactionModalOpen} 
-        onRequestClose={handleCloseNewTransactionModal}>
+        <Modal isOpen={isOpen} 
+        onRequestClose={onRequestClose}>
                   <h2>
                       Cadastrar Transação
                   </h2>
