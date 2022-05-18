@@ -77,5 +77,13 @@ export const GlobalStyle = createGlobalStyle`
        position: relative; //pq depoisvamos ter conteúdos com position absolute, senão não funcionariam lá
        border-radius: 0.24rem;
   }
+  
+   .react-modal-close {
+      position: absolute;
+      right: 1.5rem;
+      top: 1.5rem;
+      border: 0;
+      background: transparent;
+  }
 `;
 
