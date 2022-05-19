@@ -66,6 +66,13 @@ export const TransactionTypeContainer = styled.div`
         align-items: center;
         justify-content: center;
 
+
+         
+        &:hover { //nesse caso não conseguimos usar o filter pq ele escurece por completo e não só as bordas de um botão
+            border-color: #aaa;
+        }
+   
+            
         img {
             width: 20px;
             height: 20px;
