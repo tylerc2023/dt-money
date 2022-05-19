@@ -60,7 +60,7 @@ export const TransactionTypeContainer = styled.div`
 
 interface RadioBoxProps { //para não dar mais erro na isActive
     isActive: boolean;
-    activeColor: string;
+    activeColor: 'green' | 'red';
 }
 
 const colors = {
