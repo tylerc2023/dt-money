@@ -60,7 +60,13 @@ export const TransactionTypeContainer = styled.div`
 
 interface RadioBoxProps { //para não dar mais erro na isActive
     isActive: boolean;
+    activeColor: string;
 }
+
+const colors = {
+    green: ' #33cc95',
+    red: '#e52e40'
+}; //variável que faz um map das colors
 
 export const RadioBox  = styled.button<RadioBoxProps>` 
      height: 4rem;
@@ -68,7 +74,7 @@ export const RadioBox  = styled.button<RadioBoxProps>`
         border-radius: 0.25rem;
         
         //nesse caso o css fica entre aspas simples ou duplas pq agora isso é javascript!
-        background: ${(props) => props.isActive ? '#ccc' : 'transparent'};
+        background: ${(props) => props.isActive ? colors(props.activeColor) : 'transparent'};
 
         display: flex;
         align-items: center;
