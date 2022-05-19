@@ -74,7 +74,7 @@ export const RadioBox  = styled.button<RadioBoxProps>`
         border-radius: 0.25rem;
         
         //nesse caso o css fica entre aspas simples ou duplas pq agora isso é javascript!
-        background: ${(props) => props.isActive ? colors(props.activeColor) : 'transparent'};
+        background: ${(props) => props.isActive ? colors[props.activeColor] : 'transparent'};
 
         display: flex;
         align-items: center;
