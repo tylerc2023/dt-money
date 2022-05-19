@@ -3,6 +3,7 @@ import { Container, TransactionTypeContainer } from './styles';
 import closeImg from '../../assets/close.svg';
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
+import { useState } from 'react';
 
 
 
@@ -12,6 +13,10 @@ interface NewTransactionModaProps {
 }
 
 export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionModaProps) {
+    const [type, setType]  = useState('deposit'); //criando estado para armazenar o input
+
+    
+
     return(
         <Modal isOpen={isOpen} 
         onRequestClose={onRequestClose} 
@@ -28,12 +33,15 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
               <input type="number" placeholder="Valor" />
 
               <TransactionTypeContainer>
-                 <button type="button">
+                 <button type="button"
+                 className={type === 'deposit' ? 'active' : ''}
+                 onClick={() => {setType('deposit');}}>
                     <img src={incomeImg} alt="Entrada" />
                     <span>Entrada</span>
                  </button>
 
-                 <button type="button">
+                 <button type="button"
+                 onClick={() => {setType('withdraw');}}>
                     <img src={outcomeImg} alt="Saída" />
                     <span>Saída</span>
                  </button>
