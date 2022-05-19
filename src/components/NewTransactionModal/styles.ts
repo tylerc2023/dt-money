@@ -64,7 +64,7 @@ interface RadioBoxProps { //para não dar mais erro na isActive
 }
 
 const colors = {
-    green: ' #33cc95',
+    green: '#33cc95',
     red: '#e52e40'
 }; //variável que faz um map das colors
 
