@@ -56,9 +56,10 @@ export const TransactionTypeContainer = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr; //duas colunas
     gap: 0.5rem; //espaçamento entre cada botão
+`;
 
-    button {
-        height: 4rem;
+export const RadioBox  = styled.button`
+     height: 4rem;
         border: 1px solid #d7d7d7;
         border-radius: 0.25rem;
         
@@ -85,5 +86,4 @@ export const TransactionTypeContainer = styled.div`
             font-size: 1rem;
             color: var(--text-title);
         }
-    }
 `;
