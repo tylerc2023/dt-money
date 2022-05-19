@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {darken} from 'polished';
+import {darken, transparentize} from 'polished';
 // a função darken escurece uma cor
 
 export const Container = styled.form`
@@ -60,7 +60,7 @@ export const TransactionTypeContainer = styled.div`
 
 interface RadioBoxProps { //para não dar mais erro na isActive
     isActive: boolean;
-    activeColor: 'green' | 'red';
+    activeColor: 'green'|'red';
 }
 
 const colors = {
@@ -74,7 +74,9 @@ export const RadioBox  = styled.button<RadioBoxProps>`
         border-radius: 0.25rem;
         
         //nesse caso o css fica entre aspas simples ou duplas pq agora isso é javascript!
-        background: ${(props) => props.isActive ? colors[props.activeColor] : 'transparent'};
+        background: ${(props) => props.isActive 
+        ? transparentize(0.9, colors[props.activeColor]) 
+        : 'transparent'};
 
         display: flex;
         align-items: center;
