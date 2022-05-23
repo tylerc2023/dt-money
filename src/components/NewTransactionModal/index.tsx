@@ -23,6 +23,13 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
 //por padrão todo submit recarrega a tela depois de clicado
     function handleCreateNewTransaction(event: FormEvent) {
         event.preventDefault(); //prevenir funcionamento padrão dp html com essa função
+        
+        console.log({
+            title,
+            value,
+            category,
+            type,
+        })
     }
 
     return(
