@@ -70,7 +70,10 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
                  </RadioBox>
               </TransactionTypeContainer>
 
-              <input placeholder="Categoria" />
+              <input placeholder="Categoria" 
+               value={category}
+               onChange={event => setCategory(event.target.value)}
+              />
               <button type="submit">Cadastrar</button>
             </Container>
         </Modal> 
