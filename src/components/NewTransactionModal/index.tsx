@@ -46,7 +46,7 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
                type="number" 
                placeholder="Valor" 
                value={value}
-               onChange={event => setValue(+event.target.value)} //o + converte para number
+               onChange={event => setValue(Number(event.target.value))} //o +  antes do (+event.target.value) converte para number
                //o event sempre retorna string
                />
 
@@ -78,4 +78,3 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
 }
 
 //OBS! Dentro do reactjs há várias formas de lidar com formulário
-
