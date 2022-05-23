@@ -13,9 +13,10 @@ interface NewTransactionModaProps {
 }
 
 export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionModaProps) {
-    //anotando dados dos inputs
-    const [] = useState(''); //inputs de texto
-    const [] = useState(0); //inputs numéricos
+    //anotando dados dos inputs (obs! sempre iniciamos um estado como vazio)
+    const [title, setTitle] = useState(''); //inputs de texto
+    const [value, setValue] = useState(0); //inputs numéricos
+    const [category, setCategory] = useState(''); 
 
     const [type, setType]  = useState('deposit'); //criando estado para armazenar o input
 
@@ -36,8 +37,18 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
         </button>
             <Container onSubmit={handleCreateNewTransaction}>
               <h2>Cadastrar Transação</h2>
-              <input placeholder="Título" />
-              <input type="number" placeholder="Valor" />
+              <input 
+              placeholder="Título"
+              value={title}
+              onChange={event => setTitle(event.target.value)}
+               />
+              <input
+               type="number" 
+               placeholder="Valor" 
+               value={value}
+               onChange={event => setValue(+event.target.value)} //o + converte para number
+               //o event sempre retorna string
+               />
 
               <TransactionTypeContainer>
                  <RadioBox type="button"
@@ -67,3 +78,4 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
 }
 
 //OBS! Dentro do reactjs há várias formas de lidar com formulário
+
