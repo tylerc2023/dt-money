@@ -3,7 +3,7 @@ import { Container, TransactionTypeContainer, RadioBox} from './styles';
 import closeImg from '../../assets/close.svg';
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
-import { useState } from 'react';
+import { FormEvent, useState } from 'react';
 
 
 
@@ -15,7 +15,10 @@ interface NewTransactionModaProps {
 export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionModaProps) {
     const [type, setType]  = useState('deposit'); //criando estado para armazenar o input
 
-    
+//por padrão todo submit recarrega a tela depois de clicado
+    function handleCreateNewTransaction(event: FormEvent) {
+        
+    }
 
     return(
         <Modal isOpen={isOpen} 
@@ -27,7 +30,7 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
          className="react-modal-close">
             <img src={closeImg} alt="Fechar modal" />
         </button>
-            <Container>
+            <Container onSubmit={handleCreateNewTransaction}>
               <h2>Cadastrar Transação</h2>
               <input placeholder="Título" />
               <input type="number" placeholder="Valor" />
