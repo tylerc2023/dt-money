@@ -1,9 +1,9 @@
+import { FormEvent, useState } from 'react';
 import Modal from 'react-modal';
 import { Container, TransactionTypeContainer, RadioBox} from './styles';
 import closeImg from '../../assets/close.svg';
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
-import { FormEvent, useState } from 'react';
 
 
 
@@ -13,6 +13,10 @@ interface NewTransactionModaProps {
 }
 
 export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionModaProps) {
+    //anotando dados dos inputs
+    const [] = useState(''); //inputs de texto
+    const [] = useState(0); //inputs numéricos
+
     const [type, setType]  = useState('deposit'); //criando estado para armazenar o input
 
 //por padrão todo submit recarrega a tela depois de clicado
@@ -63,4 +67,3 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
 }
 
 //OBS! Dentro do reactjs há várias formas de lidar com formulário
-
