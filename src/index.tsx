@@ -23,7 +23,9 @@ createServer({
     })
 
     this.post('/transactions', (schema, request) => {
-        const data = request.requestBody
+        const data = JSON.parse(request.requestBody)
+
+        return data
     })
   }
 })
@@ -34,4 +36,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
