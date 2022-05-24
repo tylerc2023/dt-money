@@ -4,7 +4,7 @@ import { Container, TransactionTypeContainer, RadioBox} from './styles';
 import closeImg from '../../assets/close.svg';
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
-
+import {api} from '../../services/api';
 
 
 interface NewTransactionModaProps {
@@ -23,13 +23,14 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
 //por padrão todo submit recarrega a tela depois de clicado
     function handleCreateNewTransaction(event: FormEvent) {
         event.preventDefault(); //prevenir funcionamento padrão dp html com essa função
-        
-        console.log({
+
+        const data = {
             title,
             value,
             category,
             type,
-        })
+        };
+        api.post('/transactions', data)
     }
 
     return(
