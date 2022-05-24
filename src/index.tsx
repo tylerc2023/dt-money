@@ -21,6 +21,10 @@ createServer({
         }
       ] //aqui posso retornar o que eu quiser
     })
+
+    this.post('/transactions', (schema, request) => {
+        const data = request.requestBody
+    })
   }
 })
 
