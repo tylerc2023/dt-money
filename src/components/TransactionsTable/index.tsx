@@ -22,18 +22,16 @@ export function TransactionsTable() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Desenvolvimento de website</td>
-                        <td className="deposit">R$ 12.000</td>
-                        <td>Desenvolvimento</td>
-                        <td>20/02/2022</td>
-                    </tr>
-                    <tr>
-                        <td>aluguel</td>
-                        <td className="withdraw"> - R$ 1.100</td>
-                        <td>Casa</td>
-                        <td>30/02/2022</td>
-                    </tr>
+                   {transactions.map(transactions => {
+                       return (
+                        <tr>
+                          <td>Desenvolvimento de website</td>
+                          <td className="deposit">R$ 12.000</td>
+                          <td>Desenvolvimento</td>
+                          <td>20/02/2022</td>
+                        </tr>
+                       );
+                   })}
                 </tbody>
             </table>
         </Container>
