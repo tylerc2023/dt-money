@@ -32,10 +32,10 @@ export function TransactionsTable() {
                 </thead>
                 <tbody>
                    {transactions.map(transaction => (
-                       
-                        <tr>
+                       //toda vez que faço um map, o primeiro elemento que vem dentro dele precisa ter uma key ee nela coloca qual que é a informação única
+                        <tr key={transaction.id}>
                           <td>{transaction.title}</td>
-                          <td className="deposit">{transaction.amount}</td>
+                          <td className={transaction.type}>{transaction.amount}</td>
                           <td>{transaction.category}</td>
                           <td>{transaction.createdAt}</td>
                         </tr>
