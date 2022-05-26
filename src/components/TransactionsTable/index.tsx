@@ -42,7 +42,12 @@ export function TransactionsTable() {
                               }).format(transaction.amount)}
                           </td>
                           <td>{transaction.category}</td>
-                          <td>{transaction.createdAt}</td>
+
+                          <td className={transaction.type}>
+                              {new Intl.DateTimeFormat('pt-BR').format(
+                                  new Date(transaction.createdAt) 
+                              )}
+                          </td>
                         </tr>
                    //vamos usar uma api do browser para formatar as datas e valores
                   ))}
