@@ -3,11 +3,11 @@ import { api } from "../../services/api";
 import {Container} from "./styles";
 
 export function TransactionsTable() {
-  const [transactions, setTransactions] = useState([]);
+  const [transactions, setTransactions] = useState([]); //como são várias transações usaremos sempre um array vazio
 
    useEffect(() => {
        api.get('transactions')
-       .then(response => console.log(response.data))
+       .then(response => setTransactions(response.data))
    }, []);
 
     return(
