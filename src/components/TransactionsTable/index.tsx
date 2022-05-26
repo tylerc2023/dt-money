@@ -22,13 +22,13 @@ export function TransactionsTable() {
                     </tr>
                 </thead>
                 <tbody>
-                   {transactions.map(transactions => (
+                   {transactions.map(transaction => (
                        
                         <tr>
-                          <td>Desenvolvimento de website</td>
-                          <td className="deposit">R$ 12.000</td>
-                          <td>Desenvolvimento</td>
-                          <td>20/02/2022</td>
+                          <td>{transaction.title}</td>
+                          <td className="deposit">{transaction.amount}</td>
+                          <td>{transaction.category}</td>
+                          <td>{transaction.createdAt}</td>
                         </tr>
                    
                   ))}
