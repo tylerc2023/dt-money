@@ -20,4 +20,10 @@ export function TransactionsProvider() {
       api.get('transactions')
       .then(response => setTransactions(response.data.transactions))
   }, []); 
+
+  return (
+      <TransactionsContext.Provider value={transactions}>
+
+      </TransactionsContext.Provider>
+  )
 }
