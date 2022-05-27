@@ -4,15 +4,6 @@ import {Container} from "./styles";
 import {TransactionsContext} from '../../TransactionsContext';
 
 
-interface Transaction {
-    id: number;
-    title: string;
-    amount: number;
-    type: string;
-    category: string;
-    createdAt: string;
-}
-
 export function TransactionsTable() {
     const data = useContext(TransactionsContext);
 
