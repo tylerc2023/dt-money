@@ -4,9 +4,9 @@ import { Dashboard } from "./components/Dashboard";
 import Modal from 'react-modal';
 import {useState} from 'react';
 import { NewTransactionModal } from "./components/NewTransactionModal";
-
+import {TransactionsContext} from './TransactionsContext';
 //mais para uma questão de acessibilidade
-Modal.setAppElement('#root');
+Modal.setAppElement('#root')
 
 export function App() {
 
@@ -22,14 +22,14 @@ export function App() {
   }
 
   return (
-    <>
+    <TransactionsContext.Provider>
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal}/>
       <Dashboard/>
       <NewTransactionModal
        isOpen={isNewTransactionModalOpen}
        onRequestClose={handleCloseNewTransactionModal}/>
       <GlobalStyle/>
-    </>
+    </TransactionsContext.Provider>
   );
 }
 
