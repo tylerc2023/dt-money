@@ -12,6 +12,13 @@ export function App() {
 
   //criando o modal
   const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
+  const [transactions, setTransactions] = useState<Transaction[]>([]); //como são várias transações usaremos sempre um array vazio
+
+  useEffect(() => {
+      api.get('transactions')
+      .then(response => setTransactions(response.data.transactions))
+  }, []);
+
   function handleOpenNewTransactionModal() {
       setIsNewTransactionModalOpen(true);
   }
@@ -22,7 +29,7 @@ export function App() {
   }
 
   return ( //no value colocamos o valor atual do contexto
-    <TransactionsContext.Provider value={[]}> 
+    <TransactionsContext.Provider value={transactions}> 
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal}/>
       <Dashboard/>
       <NewTransactionModal
