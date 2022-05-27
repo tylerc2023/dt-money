@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useEffect, useState, ReactNode } from 'react';
 import { api } from './services/api';
 
 
@@ -10,6 +10,11 @@ interface Transaction {
     category: string;
     createdAt: string;
 }
+
+interface TransactionsProviderProps {
+    children: ReactNode; //ceita qualquer tipo de conteúdo válido p/ o react
+}
+
 //para qualquer componente ter acesso ao contexto precisamos por em volta um provider
 export const TransactionsContext = createContext<Transaction[]>([]); //forma mais simples de criar um contexto no react
 
