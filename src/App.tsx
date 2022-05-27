@@ -21,8 +21,8 @@ export function App() {
       setIsNewTransactionModalOpen(false);
   }
 
-  return (
-    <TransactionsContext.Provider>
+  return ( //no value colocamos o valor atual do contexto
+    <TransactionsContext.Provider value={[]}> 
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal}/>
       <Dashboard/>
       <NewTransactionModal
