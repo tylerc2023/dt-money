@@ -4,7 +4,6 @@ import {Container} from "./styles";
 import {TransactionsContext} from '../../TransactionsContext';
 
 
-
 interface Transaction {
     id: number;
     title: string;
@@ -16,14 +15,6 @@ interface Transaction {
 
 export function TransactionsTable() {
     const data = useContext(TransactionsContext);
-    const [transactions, setTransactions] = useState<Transaction[]>([]); //como são várias transações usaremos sempre um array vazio
-
-    useEffect(() => {
-        api.get('transactions')
-        .then(response => setTransactions(response.data.transactions))
-    }, []);
- 
-
 
     return(
         <Container>
