@@ -4,7 +4,7 @@ import { Dashboard } from "./components/Dashboard";
 import Modal from 'react-modal';
 import {useState} from 'react';
 import { NewTransactionModal } from "./components/NewTransactionModal";
-import {TransactionsContext} from './TransactionsContext';
+import { TransactionsProvider} from './TransactionsContext';
 //mais para uma questão de acessibilidade
 Modal.setAppElement('#root')
 
@@ -12,12 +12,6 @@ export function App() {
 
   //criando o modal
   const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
-  const [transactions, setTransactions] = useState<Transaction[]>([]); //como são várias transações usaremos sempre um array vazio
-
-  useEffect(() => {
-      api.get('transactions')
-      .then(response => setTransactions(response.data.transactions))
-  }, []);
 
   function handleOpenNewTransactionModal() {
       setIsNewTransactionModalOpen(true);
@@ -29,16 +23,17 @@ export function App() {
   }
 
   return ( //no value colocamos o valor atual do contexto
-    <TransactionsContext.Provider value={transactions}> 
+    <TransactionsProvider> 
       <Header onOpenNewTransactionModal={handleOpenNewTransactionModal}/>
       <Dashboard/>
       <NewTransactionModal
        isOpen={isNewTransactionModalOpen}
        onRequestClose={handleCloseNewTransactionModal}/>
       <GlobalStyle/>
-    </TransactionsContext.Provider>
+    </TransactionsProvider>
   );
 }
+
 
 
 
