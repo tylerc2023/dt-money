@@ -1,23 +1,17 @@
 import { Container } from "./styles";
-
+import React, {useContext} from 'react';
 import incomeImg from '../../assets/income.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import totalImg from '../../assets/total.svg'
-import {TransactionsContext} from './TransactionsContext';
+
 
 export function Summary() {
-    //obtendo os valores do contexto (há duas formas, usando handle props ou )
-    
+    //obtendo os valores do contexto (há duas formas, usando handle props -> menos usada ou useContext)
+    const data= useContext(TransactionsContext);
 
     return(
         <Container>
-            <TransactionsContext.Consumer> 
-               {(data) => {
-                  console.log(data);
-               }}
-
-               return <p>olá</p>
-            </TransactionsContext.Consumer>
+           
             <div>
                 <header>
                     <p>Entradas</p>
@@ -41,4 +35,8 @@ export function Summary() {
             </div>
         </Container>
     );
+}
+
+function TransactionsContext(TransactionsContext: any) {
+    throw new Error("Function not implemented.");
 }
