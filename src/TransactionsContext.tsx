@@ -18,7 +18,7 @@ interface TransactionsProviderProps {
 //para qualquer componente ter acesso ao contexto precisamos por em volta um provider
 export const TransactionsContext = createContext<Transaction[]>([]); //forma mais simples de criar um contexto no react
 
-export function TransactionsProvider(props: TransactionsProviderProps) {
+export function TransactionsProvider({children}: TransactionsProviderProps) {
     const [transactions, setTransactions] = useState<Transaction[]>([]); //como são várias transações usaremos sempre um array vazio
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export function TransactionsProvider(props: TransactionsProviderProps) {
 
   return (
       <TransactionsContext.Provider value={transactions}>
-
+        {children}
       </TransactionsContext.Provider>
   )
 }
