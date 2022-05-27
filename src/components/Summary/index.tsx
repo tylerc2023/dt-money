@@ -9,7 +9,9 @@ import { Container } from "./styles";
 export function Summary() {
     //obtendo os valores do contexto (há duas formas, usando handle props -> menos usada ou useContext)
     const transactions = useContext(TransactionsContext);
+    console.log(transactions);
 
+    
     return(
         <Container>
            
