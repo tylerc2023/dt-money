@@ -76,7 +76,6 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
                     <span>Saída</span>
                  </RadioBox>
               </TransactionTypeContainer>
-
               <input placeholder="Categoria" 
                value={category}
                onChange={event => setCategory(event.target.value)}
