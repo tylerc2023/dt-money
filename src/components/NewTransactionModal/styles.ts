@@ -81,7 +81,8 @@ export const RadioBox  = styled.button<RadioBoxProps>`
 
         transition: border-color 0.2s;
 
-        &:hover { //nesse caso não conseguimos usar o filter pq ele escurece por completo e não só as bordas de um botão
+        //nesse caso não conseguimos usar o filter pq ele escurece por completo e não só as bordas de um botão
+        &:hover { 
             border-color: ${darken(0.1, '#d7d7d7')};
         }
 
