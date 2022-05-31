@@ -13,12 +13,11 @@ interface NewTransactionModaProps {
 }
 
 export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionModaProps) {
-    //anotando dados dos inputs (obs! sempre iniciamos um estado como vazio)
-    const [title, setTitle] = useState(''); //inputs de texto
-    const [value, setValue] = useState(0); //inputs numéricos
+    const [title, setTitle] = useState(''); 
+    const [value, setValue] = useState(0); 
     const [category, setCategory] = useState(''); 
 
-    const [type, setType]  = useState('deposit'); //criando estado para armazenar o input
+    const [type, setType]  = useState('deposit'); 
 
 //por padrão todo submit recarrega a tela depois de clicado
     function handleCreateNewTransaction(event: FormEvent) {
