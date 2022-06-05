@@ -11,12 +11,15 @@ interface Transaction {
     createdAt: string;
 }
 
-interface TransactionInput {
-  title: string;
-    amount: number;
-    type: string;
-    category: string;
-}
+//interface TransactionInput {
+  //title: string;
+    //amount: number;
+    //type: string;
+    //category: string;
+//}
+
+//para não precisar criar uma nova interface
+type TransactionInput = Omit<Transaction, 'id'|'createdAt'>
 
 interface TransactionsProviderProps {
     children: ReactNode; //ceita qualquer tipo de conteúdo válido p/ o react
