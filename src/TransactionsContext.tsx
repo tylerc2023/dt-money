@@ -34,7 +34,7 @@ interface TransactionsContextDate {
 }
 
 //para qualquer componente ter acesso ao contexto precisamos por em volta um provider
-export const TransactionsContext = createContext<Transaction[]>([]); //forma mais simples de criar um contexto no react
+export const TransactionsContext = createContext<TransactionsContextDate>([]); //forma mais simples de criar um contexto no react
 
 export function TransactionsProvider({children}: TransactionsProviderProps) {
     const [transactions, setTransactions] = useState<Transaction[]>([]); //como são várias transações usaremos sempre um array vazio
