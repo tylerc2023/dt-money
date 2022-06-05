@@ -1,4 +1,3 @@
-
 import { createContext, useEffect, useState, ReactNode } from 'react';
 import { api } from './services/api';
 
@@ -10,6 +9,13 @@ interface Transaction {
     type: string;
     category: string;
     createdAt: string;
+}
+
+interface TransactionInput {
+  title: string;
+    amount: number;
+    type: string;
+    category: string;
 }
 
 interface TransactionsProviderProps {
@@ -32,7 +38,7 @@ function createTransaction(transaction: Transaction) {
   api.post('/transactions', transaction)
 
 };
-}
+
   
   return (
       <TransactionsContext.Provider value={transactions}>
