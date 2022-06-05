@@ -21,6 +21,9 @@ interface Transaction {
 //para não precisar criar uma nova interface
 type TransactionInput = Omit<Transaction, 'id'|'createdAt'>;
 
+//outra forma de fazer o que está acima é usando o pick no lugar do omit e colocando o que quero em vez de omitir o que não quero
+
+
 interface TransactionsProviderProps {
     children: ReactNode; //ceita qualquer tipo de conteúdo válido p/ o react
 }
