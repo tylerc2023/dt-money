@@ -19,7 +19,7 @@ interface Transaction {
 //}
 
 //para não precisar criar uma nova interface
-type TransactionInput = Omit<Transaction, 'id'|'createdAt'>
+type TransactionInput = Omit<Transaction, 'id'|'createdAt'>;
 
 interface TransactionsProviderProps {
     children: ReactNode; //ceita qualquer tipo de conteúdo válido p/ o react
