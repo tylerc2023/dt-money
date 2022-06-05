@@ -27,13 +27,7 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
     function handleCreateNewTransaction(event: FormEvent) {
         event.preventDefault(); //prevenir funcionamento padrão dp html com essa função
 
-        const data = {
-            title,
-            value,
-            category,
-            type,
-        };
-        api.post('/transactions', data)
+
     }
 
     return(
