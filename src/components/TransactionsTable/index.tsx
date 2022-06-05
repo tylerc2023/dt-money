@@ -1,50 +1,89 @@
-import { useContext} from "react";
-import {Container} from "./styles";
-import {TransactionsContext} from '../../TransactionsContext';
+import { FormEvent, useState, useContext } from 'react';
+import Modal from 'react-modal';
+import { Container, TransactionTypeContainer, RadioBox} from './styles';
+import closeImg from '../../assets/close.svg';
+import incomeImg from '../../assets/income.svg';
+import outcomeImg from '../../assets/outcome.svg';
+import {api} from '../../services/api';
+import { TransactionsContext } from '../../TransactionsContext';
 
 
+interface NewTransactionModaProps {
+    isOpen: boolean;
+    onRequestClose: () => void;
+}
 
-export function TransactionsTable() {
-    const {transactions} = useContext(TransactionsContext);
+export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionModaProps) {
+    const {createTransaction} = useContext(TransactionsContext);
+
+    //anotando dados dos inputs (obs! sempre iniciamos um estado como vazio)
+    const [title, setTitle] = useState(''); //inputs de texto
+    const [value, setValue] = useState(0); //inputs numéricos
+    const [category, setCategory] = useState(''); 
+
+    const [type, setType]  = useState('deposit'); //criando estado para armazenar o input
+
+//por padrão todo submit recarrega a tela depois de clicado
+    function handleCreateNewTransaction(event: FormEvent) {
+        event.preventDefault(); //prevenir funcionamento padrão dp html com essa função
+
+
+    }
 
     return(
-        <Container>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Título</th>
-                        <th>Valor</th>
-                        <th>Categoria</th>
-                        <th>Data</th>
-                    </tr>
-                </thead>
-                <tbody>
-                   {transactions.map(transaction => (
-                       //toda vez que faço um map, o primeiro elemento que vem dentro dele precisa ter uma key ee nela coloca qual que é a informação única
-                        <tr key={transaction.id}>
-                          <td>{transaction.title}</td>
-                          <td className={transaction.type}>
-                              {new Intl.NumberFormat('pt-BR', {
-                                  style: 'currency', //formatação de moeda
-                                  currency: 'BRL'
-                              }).format(transaction.amount)}
-                          </td>
-                          <td>{transaction.category}</td>
+        <Modal isOpen={isOpen} 
+        onRequestClose={onRequestClose} 
+        overlayClassName="react-modal-overlay"
+        className="react-modal-content">
+        <button type="button"
+         onClick={onRequestClose} 
+         className="react-modal-close">
+            <img src={closeImg} alt="Fechar modal" />
+        </button>
+            <Container onSubmit={handleCreateNewTransaction}>
+              <h2>Cadastrar Transação</h2>
+              <input 
+              placeholder="Título"
+              value={title}
+              onChange={event => setTitle(event.target.value)}
+               />
+              <input
+               type="number" 
+               placeholder="Valor" 
+               value={value}
+               onChange={event => setValue(Number(event.target.value))} //o +  antes do (+event.target.value) converte para number
+               //o event sempre retorna string
+               />
 
-                          <td className={transaction.type}>
-                              {new Intl.DateTimeFormat('pt-BR').format(
-                                  new Date(transaction.createdAt) 
-                              )}
-                          </td>
-                        </tr>
-                   //vamos usar uma api do browser para formatar as datas e valores
-                  ))}
-                </tbody>
-            </table>
-        </Container>
+              <TransactionTypeContainer>
+                 <RadioBox type="button"
+                 onClick={() => {setType('deposit');}}
+                 isActive={type === 'deposit'}
+                 activeColor="green"
+                 >
+                    <img src={incomeImg} alt="Entrada" />
+                    <span>Entrada</span>
+                 </RadioBox>
+
+                 <RadioBox type="button"
+                 onClick={() => {setType('withdraw');}}
+                 isActive={type === 'withdraw'}
+                 activeColor="red"
+                 >
+                    <img src={outcomeImg} alt="Saída" />
+                    <span>Saída</span>
+                 </RadioBox>
+              </TransactionTypeContainer>
+
+              <input placeholder="Categoria" 
+               value={category}
+               onChange={event => setCategory(event.target.value)}
+              />
+              <button type="submit">Cadastrar</button>
+            </Container>
+        </Modal> 
     );
 }
 
-function TransactionsContext(TransactionsContext: any) {
-    throw new Error("Function not implemented.");
-}
+//OBS! Dentro do reactjs há várias formas de lidar com formulário
+
