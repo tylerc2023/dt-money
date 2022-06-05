@@ -5,6 +5,7 @@ import closeImg from '../../assets/close.svg';
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import {api} from '../../services/api';
+import { TransactionsContext } from '../../TransactionsContext';
 
 
 interface NewTransactionModaProps {
@@ -13,11 +14,14 @@ interface NewTransactionModaProps {
 }
 
 export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionModaProps) {
-    const [title, setTitle] = useState(''); 
-    const [value, setValue] = useState(0); 
+    const transactions = useContext(TransactionsContext);
+
+    //anotando dados dos inputs (obs! sempre iniciamos um estado como vazio)
+    const [title, setTitle] = useState(''); //inputs de texto
+    const [value, setValue] = useState(0); //inputs numéricos
     const [category, setCategory] = useState(''); 
 
-    const [type, setType]  = useState('deposit'); 
+    const [type, setType]  = useState('deposit'); //criando estado para armazenar o input
 
 //por padrão todo submit recarrega a tela depois de clicado
     function handleCreateNewTransaction(event: FormEvent) {
@@ -76,6 +80,7 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
                     <span>Saída</span>
                  </RadioBox>
               </TransactionTypeContainer>
+
               <input placeholder="Categoria" 
                value={category}
                onChange={event => setCategory(event.target.value)}
