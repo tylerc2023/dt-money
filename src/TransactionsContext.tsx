@@ -1,3 +1,4 @@
+
 import { createContext, useEffect, useState, ReactNode } from 'react';
 import { api } from './services/api';
 
@@ -27,14 +28,10 @@ export function TransactionsProvider({children}: TransactionsProviderProps) {
   }, []); 
 
 
-function createTransaction(transaction) {
-  const data = {
-    title,
-    value,
-    category,
-    type,
+function createTransaction(transaction: Transaction) {
+  api.post('/transactions', transaction)
+
 };
-api.post('/transactions', data)
 }
   
   return (
