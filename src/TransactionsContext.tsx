@@ -26,6 +26,17 @@ export function TransactionsProvider({children}: TransactionsProviderProps) {
       .then(response => setTransactions(response.data.transactions))
   }, []); 
 
+
+function createTransaction(transaction) {
+  const data = {
+    title,
+    value,
+    category,
+    type,
+};
+api.post('/transactions', data)
+}
+  
   return (
       <TransactionsContext.Provider value={transactions}>
         {children}
