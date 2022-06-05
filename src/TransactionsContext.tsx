@@ -28,6 +28,11 @@ interface TransactionsProviderProps {
     children: ReactNode; //ceita qualquer tipo de conteúdo válido p/ o react
 }
 
+interface TransactionsContextDate {
+  transactions: Transaction[];
+  createTransaction: (transaction: TransactionInput) => void;
+}
+
 //para qualquer componente ter acesso ao contexto precisamos por em volta um provider
 export const TransactionsContext = createContext<Transaction[]>([]); //forma mais simples de criar um contexto no react
 
