@@ -34,7 +34,7 @@ export function TransactionsProvider({children}: TransactionsProviderProps) {
   }, []); 
 
 
-function createTransaction(transaction: Transaction) {
+function createTransaction(transaction: TransactionInput) {
   api.post('/transactions', transaction)
 
 };
