@@ -47,7 +47,7 @@ function createTransaction(transaction: TransactionInput) {
 
   
   return (
-      <TransactionsContext.Provider value={transactions}>
+      <TransactionsContext.Provider value={{transactions, createTransaction}}>
         {children}
       </TransactionsContext.Provider>
   )
