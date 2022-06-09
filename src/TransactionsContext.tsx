@@ -30,7 +30,7 @@ interface TransactionsProviderProps {
 
 interface TransactionsContextDate {
   transactions: Transaction[];
-  createTransaction: (transaction: TransactionInput) => void;
+  createTransaction: (transaction: TransactionInput) => Promise<void>;
 }
 
 //para qualquer componente ter acesso ao contexto precisamos por em volta um provider
