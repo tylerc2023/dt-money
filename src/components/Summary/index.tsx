@@ -2,17 +2,27 @@ import React, {useContext} from 'react';
 import incomeImg from '../../assets/income.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import totalImg from '../../assets/total.svg'
-import {TransactionsContext} from '../../TransactionsContext'
 import { Container } from "./styles";
+import {TransactionsContext} from '../../TransactionsContext'
 
 
 export function Summary() {
     //obtendo os valores do contexto (há duas formas, usando handle props -> menos usada ou useContext)
     const {transactions} = useContext(TransactionsContext);
-    console.log(transactions);
+    
+    //calculando os totais
+    const totalDeposit = transactions.reduce((acc, transaction) => {
+        if (transaction.type === 'deposit') {
+            return acc + transaction.amount;
+        }
+
+        return acc;
+
+    }, 0);
 
     return(
         <Container>
+           
             <div>
                 <header>
                     <p>Entradas</p>
@@ -38,7 +48,6 @@ export function Summary() {
     );
 }
 
-function TransactionsContexts(TransactionsContext: any) {
-    throw new Error("Function not implemented.");
-}
-
+//function TransactionsContexts(TransactionsContext: any) {
+  //  throw new Error("Function not implemented.");
+//}
