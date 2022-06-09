@@ -1,62 +1,101 @@
-import { createContext, useEffect, useState, ReactNode } from 'react';
-import { api } from './services/api';
+import { FormEvent, useState, useContext } from 'react';
+import Modal from 'react-modal';
+import { Container, TransactionTypeContainer, RadioBox} from './styles';
+import closeImg from '../../assets/close.svg';
+import incomeImg from '../../assets/income.svg';
+import outcomeImg from '../../assets/outcome.svg';
+import {api} from '../../services/api';
+import { TransactionsContext } from '../../TransactionsContext';
 
 
-interface Transaction {
-    id: number;
-    title: string;
-    amount: number;
-    type: string;
-    category: string;
-    createdAt: string;
+interface NewTransactionModaProps {
+    isOpen: boolean;
+    onRequestClose: () => void;
 }
 
-//interface TransactionInput {
-  //title: string;
-    //amount: number;
-    //type: string;
-    //category: string;
-//}
+export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionModaProps) {
+    const {createTransaction} = useContext(TransactionsContext);
 
-//para não precisar criar uma nova interface
-type TransactionInput = Omit<Transaction, 'id'|'createdAt'>;
+    //anotando dados dos inputs (obs! sempre iniciamos um estado como vazio)
+    const [title, setTitle] = useState(''); //inputs de texto
+    const [amount, setAmount] = useState(0); //inputs numéricos
+    const [category, setCategory] = useState(''); 
 
-//outra forma de fazer o que está acima é usando o pick no lugar do omit e colocando o que quero em vez de omitir o que não quero
+    const [type, setType]  = useState('deposit'); //criando estado para armazenar o input
 
+//por padrão todo submit recarrega a tela depois de clicado
+    async function handleCreateNewTransaction(event: FormEvent) {
+        event.preventDefault(); //prevenir funcionamento padrão dp html com essa função
 
-interface TransactionsProviderProps {
-    children: ReactNode; //ceita qualquer tipo de conteúdo válido p/ o react
+       await createTransaction({
+            title,
+            amount,
+            category,
+            type,
+
+        })
+
+        setTitle('');
+        setAmount(0);
+        setCategory('');
+        setType('deposit');
+        onRequestClose();
+    }
+
+    return(
+        <Modal isOpen={isOpen} 
+        onRequestClose={onRequestClose} 
+        overlayClassName="react-modal-overlay"
+        className="react-modal-content">
+        <button type="button"
+         onClick={onRequestClose} 
+         className="react-modal-close">
+            <img src={closeImg} alt="Fechar modal" />
+        </button>
+            <Container onSubmit={handleCreateNewTransaction}>
+              <h2>Cadastrar Transação</h2>
+              <input 
+              placeholder="Título"
+              value={title}
+              onChange={event => setTitle(event.target.value)}
+               />
+              <input
+               type="number" 
+               placeholder="Valor" 
+               value={amount}
+               onChange={event => setAmount(Number(event.target.value))} //o +  antes do (+event.target.value) converte para number
+               //o event sempre retorna string
+               />
+
+              <TransactionTypeContainer>
+                 <RadioBox type="button"
+                 onClick={() => {setType('deposit');}}
+                 isActive={type === 'deposit'}
+                 activeColor="green"
+                 >
+                    <img src={incomeImg} alt="Entrada" />
+                    <span>Entrada</span>
+                 </RadioBox>
+
+                 <RadioBox type="button"
+                 onClick={() => {setType('withdraw');}}
+                 isActive={type === 'withdraw'}
+                 activeColor="red"
+                 >
+                    <img src={outcomeImg} alt="Saída" />
+                    <span>Saída</span>
+                 </RadioBox>
+              </TransactionTypeContainer>
+
+              <input placeholder="Categoria" 
+               value={category}
+               onChange={event => setCategory(event.target.value)}
+              />
+              <button type="submit">Cadastrar</button>
+            </Container>
+        </Modal> 
+    );
 }
 
-interface TransactionsContextDate {
-  transactions: Transaction[];
-  createTransaction: (transaction: TransactionInput) => Promise<void>;
-}
+//OBS! Dentro do reactjs há várias formas de lidar com formulário
 
-//para qualquer componente ter acesso ao contexto precisamos por em volta um provider
-export const TransactionsContext = createContext<TransactionsContextDate>(
-  {} as TransactionsContextDate //vamos forçar uma tipagem para parar de dar erro
-  ); //forma mais simples de criar um contexto no react
-
-export function TransactionsProvider({children}: TransactionsProviderProps) {
-    const [transactions, setTransactions] = useState<Transaction[]>([]); //como são várias transações usaremos sempre um array vazio
-
-    useEffect(() => {
-      api.get('transactions')
-      .then(response => setTransactions(response.data.transactions))
-  }, []); 
-
-//transformando em uma função assincrona
-async function createTransaction(transaction: TransactionInput) {
-  const response = await api.post('/transactions', transaction)
-  const {transaction} = response.data;
-
-};
-
-  
-  return (
-      <TransactionsContext.Provider value={{transactions, createTransaction}}>
-        {children}
-      </TransactionsContext.Provider>
-  )
-}
