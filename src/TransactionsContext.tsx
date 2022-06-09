@@ -48,7 +48,10 @@ export function TransactionsProvider({children}: TransactionsProviderProps) {
 
 //transformando em uma função assincrona
 async function createTransaction(transactionInput: TransactionInput) {
-  const response = await api.post('/transactions', transactionInput)
+  const response = await api.post('/transactions', {
+    ...transactionInput,
+    createdAt: new Date(),
+  })
   const {transaction} = response.data;
 
 //sempre que adiciono uma informação a um vetor eu coloco []  e dentro coloco todas as informações que ele tem e adiciono a nova informação nele
