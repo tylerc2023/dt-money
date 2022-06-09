@@ -72,5 +72,7 @@ async function createTransaction(transactionInput: TransactionInput) {
 
 
 export function useTransactions() {
-   const context = useContext(TransactionsContext)
+   const context = useContext(TransactionsContext);
+
+   return context;
 }
