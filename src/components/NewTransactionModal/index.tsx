@@ -27,13 +27,15 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
     function handleCreateNewTransaction(event: FormEvent) {
         event.preventDefault(); //prevenir funcionamento padrão dp html com essa função
 
-        createTransaction({
+       await createTransaction({
             title,
             amount,
             category,
             type,
 
         })
+
+        onRequestClose();
     }
 
     return(
@@ -92,4 +94,3 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
 }
 
 //OBS! Dentro do reactjs há várias formas de lidar com formulário
-
