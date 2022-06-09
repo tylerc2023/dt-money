@@ -2,13 +2,13 @@ import React, {useContext} from 'react';
 import incomeImg from '../../assets/income.svg'
 import outcomeImg from '../../assets/outcome.svg'
 import totalImg from '../../assets/total.svg'
+import { useTransactions } from '../../hooks/useTransactions';
 import { Container } from "./styles";
-import {TransactionsContext} from '../../TransactionsContext'
 
 
 export function Summary() {
     //obtendo os valores do contexto (há duas formas, usando handle props -> menos usada ou useContext)
-    const {transactions} = useContext(TransactionsContext);
+    const {transactions} = useTransactions();
 
 
    //tudo o que está acima só que de uma forma melhor:
@@ -74,3 +74,4 @@ export function Summary() {
 //function TransactionsContexts(TransactionsContext: any) {
   //  throw new Error("Function not implemented.");
 //}
+
