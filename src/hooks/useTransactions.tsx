@@ -34,7 +34,7 @@ interface TransactionsContextDate {
 }
 
 //para qualquer componente ter acesso ao contexto precisamos por em volta um provider
-export const TransactionsContext = createContext<TransactionsContextDate>(
+const TransactionsContext = createContext<TransactionsContextDate>(
   {} as TransactionsContextDate //vamos forçar uma tipagem para parar de dar erro
   ); //forma mais simples de criar um contexto no react
 
