@@ -24,7 +24,7 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
     const [type, setType]  = useState('deposit'); //criando estado para armazenar o input
 
 //por padrão todo submit recarrega a tela depois de clicado
-    function handleCreateNewTransaction(event: FormEvent) {
+    async function handleCreateNewTransaction(event: FormEvent) {
         event.preventDefault(); //prevenir funcionamento padrão dp html com essa função
 
        await createTransaction({
