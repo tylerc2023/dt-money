@@ -69,3 +69,8 @@ async function createTransaction(transactionInput: TransactionInput) {
       </TransactionsContext.Provider>
   )
 }
+
+
+export function useTransactions() {
+   const context = useContext(TransactionsContext)
+}
