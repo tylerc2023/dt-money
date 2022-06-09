@@ -5,7 +5,7 @@ import closeImg from '../../assets/close.svg';
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import {api} from '../../services/api';
-import { TransactionsContext } from '../../TransactionsContext';
+import { useTransactions } from '../../hooks/useTransactions';
 
 
 interface NewTransactionModaProps {
@@ -14,7 +14,7 @@ interface NewTransactionModaProps {
 }
 
 export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionModaProps) {
-    const {createTransaction} = useContext(TransactionsContext);
+    const {createTransaction} = useTransactions();
 
     //anotando dados dos inputs (obs! sempre iniciamos um estado como vazio)
     const [title, setTitle] = useState(''); //inputs de texto
@@ -98,4 +98,3 @@ export function NewTransactionModal({isOpen, onRequestClose} : NewTransactionMod
 }
 
 //OBS! Dentro do reactjs há várias formas de lidar com formulário
-
