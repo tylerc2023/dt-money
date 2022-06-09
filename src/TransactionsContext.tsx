@@ -46,9 +46,9 @@ export function TransactionsProvider({children}: TransactionsProviderProps) {
       .then(response => setTransactions(response.data.transactions))
   }, []); 
 
-
-function createTransaction(transaction: TransactionInput) {
-  api.post('/transactions', transaction)
+//transformando em uma função assincrona
+async function createTransaction(transaction: TransactionInput) {
+  await api.post('/transactions', transaction)
 
 };
 
